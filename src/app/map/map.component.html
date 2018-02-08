@@ -1,0 +1,16 @@
+<div class="container">
+  <input type="text" class="form-control" placeholder="Search" #search [formControl]="searchControl">
+
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)">
+    <agm-marker
+      *ngFor="let marker of markers"
+      [latitude]="marker.lat"
+      [longitude]="marker.lng">
+
+      <agm-info-window>
+        <strong>{{marker.label}}</strong><br>
+        <p>lat:{{marker.lat}} <br> lng: {{marker.lng}}</p>
+      </agm-info-window>
+    </agm-marker>
+  </agm-map>
+</div>
